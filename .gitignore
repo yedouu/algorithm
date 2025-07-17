@@ -1,0 +1,5 @@
+# 忽略所有 .exe 可执行文件
+*.exe
+
+# 忽略 .idea 文件夹（通常是 JetBrains 系 IDE 生成的配置）
+.idea/
