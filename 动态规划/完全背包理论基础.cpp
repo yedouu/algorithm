@@ -19,9 +19,36 @@ dp[i][j]有两种情况：1.放入物品i；2.不放入物品i
 所以dp[i][j]=max(dp[i-1][j],dp[i][j-weight[i]]+value[i])
  */
 
+/*
+ 解法上和01背包的区别：
+ 取了物品i之后还能取，所以那种情况下第一个下标不减1
+ */
+
 class Solution{
 public:
+    //二维dp数组解法
     int solution(const vector<int>& weight,const vector<int>& value,int W) {
+        int dp[weight.size()][W+1];     //这里背包容量要+1，因为要考虑容量为0和W的情况
+
+        //背包初始化(初始化第一行)
+        for (int i = weight[0];i <= W;i++) {        //要记住这个初始化方法
+            dp[0][i] = d[0][i - weight[0]] + value[0];
+        }
+
+        for (int i = 0;i < weight.size();i++) {
+            for (int j=  0;j <= W;j++) {
+                if (j < weight[i]) dp[i][j] = dp[i-1][j];       //考虑放不下的情况
+                else dp[i][j] = max(dp[i-1][j],dp[i][j-weight[i]]+value[i]);
+            }
+        }
+
+        //返回最大价值
+        return dp[weight.size()-1][W];
+    }
+
+    int solution2(const vector<int>& weight,const vector<int>& value,int W) {
+        int dp[weight.size()];
+
 
     }
 
