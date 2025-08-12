@@ -7,7 +7,7 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
 /*
@@ -28,7 +28,7 @@ struct TreeNode {
 vector<int> preorderTraversal(TreeNode* root) {     //迭代法-前序遍历
     stack<TreeNode*> st;
     vector<int> result;
-    if (root == NULL) return result;
+    if (root == nullptr) return result;
     st.push(root);      //提前把root压入栈
     while (!st.empty()) {
         //先处理中间节点
@@ -47,8 +47,8 @@ vector<int> inorderTraversal(TreeNode* root) {
     vector<int> result;
     stack<TreeNode*> st;
     TreeNode* cur = root;
-    while (cur != NULL || !st.empty()) {
-        if (cur != NULL) { // 指针来访问节点，访问到最底层
+    while (cur != nullptr || !st.empty()) {
+        if (cur != nullptr) { // 指针来访问节点，访问到最底层
             st.push(cur); // 将访问的节点放进栈
             cur = cur->left;                // 左
         } else {
@@ -64,7 +64,7 @@ vector<int> inorderTraversal(TreeNode* root) {
 vector<int> postorderTraversal(TreeNode* root) {
     stack<TreeNode*> st;
     vector<int> result;
-    if (root == NULL) return result;
+    if (root == nullptr) return result;
     st.push(root);
     while (!st.empty()) {
         TreeNode* node = st.top();

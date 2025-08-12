@@ -6,13 +6,13 @@ struct TreeNode {
     int val;
     TreeNode *left;
     TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
 
 vector<vector<int>> levelOrder(TreeNode* root) {
     queue<TreeNode*> que;
     //根节点先入队
-    if (root != NULL) que.push(root);
+    if (root != nullptr) que.push(root);
     vector<vector<int>> result;
     //循环判断队列是否为空
     while (!que.empty()) {
